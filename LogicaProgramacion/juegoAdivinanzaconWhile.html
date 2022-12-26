@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego adivina el numero</title>
+</head>
+<body>
+    <h1> ADIVINA EL NUMERO (EJERCICIO USANDO WHILE)</h1>
+    
+    <script> 
+        var attempts = 3;
+        var count = 1;
+
+        function lineBreak() {
+            document.write("<br>");
+        }
+
+        function printMessage(msg) {
+            lineBreak();
+            alert("*** " + msg + " ***");
+            lineBreak();
+        }
+
+        while(count <= attempts) {
+            var ramdomNumber = Math.round(Math.random()*10);
+            var number = parseInt(prompt(" Insert the number: "));
+
+            if (number == ramdomNumber) {
+                printMessage(`Congratulations! Have good lucky, you guessed in the attempt ${count} and the number is ${ramdomNumber}!`)    
+                break;             
+            } 
+            
+            else { 
+                printMessage(`Sorry! Try it again later...`)
+
+                if (count == attempts) {
+                    printMessage(`Sorry! Try it again later. The number was${ramdomNumber}. Finished all ${count} attempts...`);
+                }
+            }
+
+            count++;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego adivina el numero</title>
+</head>
+<body>
+    <h1> ADIVINA EL NUMERO </h1>
+    
+    <script> 
+        function lineBreak() {
+            document.write("<br>");
+        }
+
+        function printMessage(msg) {
+            lineBreak();
+            document.write("*** " + msg + " ***");
+            lineBreak();
+        }
+
+        var ramdomNumber = Math.round(Math.random()*10);
+        var number = parseInt(prompt(" Insert the number: "));
+
+        number == ramdomNumber ? printMessage(`Congratulations! Have good lucky, the number is ${ramdomNumber}!`) : printMessage(`Sorry! The number is ${ramdomNumber}. Try it again...`);
+    
+    </script>
+</body>
+</html>

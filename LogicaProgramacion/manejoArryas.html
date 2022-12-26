@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Probando el boton </title>
+</head>
+<body>
+    <input type="text" autofocus placeholder="Inserte algo...">
+    <button> Verificar </button>
+
+    <script>
+        var input = document.querySelector("input");
+        var boton = document.querySelector("button");
+
+        function randomNumber() {
+            return Math.round(Math.random()*10);
+        }
+
+        function sortearNumeros(cantidad) {
+
+            var arrayNumeros = [];
+            var contador = 1;
+            var numeroAleatorio = 0;
+            var encontrado = false;
+            
+            while (contador <= cantidad) {
+                numeroAleatorio = randomNumber();
+                encontrado = false;
+
+                for(var posicion = 0; posicion < arrayNumeros.length; posicion++) {
+                    if(numeroAleatorio == arrayNumeros[posicion]) {
+                        encontrado = true;
+                        break;
+                    }
+                }
+
+                if (encontrado == false) {
+                    arrayNumeros.push(numeroAleatorio);
+                    contador++;
+                }
+            }
+
+            return arrayNumeros;
+        }
+
+        var secretos = sortearNumeros(4);
+        console.log(secretos);
+
+        function verificar() {    
+
+            var encontrado = false;
+
+            for (var i = 0; i < secretos.length; i++) {
+                if(parseInt(input.value) == secretos[i]) {
+                    alert("Acertó");
+                    encontrado = true;
+                    break;
+                } 
+            }
+                
+            if (encontrado == false) {
+                alert("Falló");
+            }           
+        }
+
+        boton.onclick = verificar;
+
+        
+
+
+
+
+    </script>
+</body>
+</html>
